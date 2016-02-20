@@ -16,6 +16,7 @@ public class GlobalMouseListenerExample implements NativeMouseInputListener {
 
 	public void nativeMouseReleased(NativeMouseEvent e) {
 		System.out.println("Mouse Released: " + e.getButton());
+		
 	}
 
 	public void nativeMouseMoved(NativeMouseEvent e) {
