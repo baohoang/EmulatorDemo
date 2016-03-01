@@ -77,6 +77,22 @@ public class JavaRobotExample {
 		robot.delay(200);
 	}
 
+	private void rightClick(){
+		robot.mousePress(InputEvent.BUTTON2_MASK);
+		robot.delay(200);
+		robot.mouseRelease(InputEvent.BUTTON2_MASK);
+		robot.delay(200);
+	}
+	
+	private void doubleleftClick(){
+		robot.mousePress(InputEvent.BUTTON1_MASK);
+		robot.mouseRelease(InputEvent.BUTTON1_MASK);
+		robot.delay(50);
+		robot.mousePress(InputEvent.BUTTON1_MASK);
+		robot.mouseRelease(InputEvent.BUTTON1_MASK);
+		robot.delay(400);
+	}
+	
 	private void type(int i) {
 		robot.delay(40);
 		robot.keyPress(i);

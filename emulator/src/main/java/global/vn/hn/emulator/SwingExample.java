@@ -13,7 +13,12 @@ import org.jnativehook.keyboard.NativeKeyEvent;
 import org.jnativehook.keyboard.NativeKeyListener;
 
 public class SwingExample extends JFrame implements NativeKeyListener, WindowListener {
-    public SwingExample() {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public SwingExample() {
         // Set the event dispatcher to a swing safe executor service.
         GlobalScreen.setEventDispatcher(new SwingDispatchService());
 

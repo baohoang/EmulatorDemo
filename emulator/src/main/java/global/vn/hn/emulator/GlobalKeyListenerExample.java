@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Random;
 
 import org.jnativehook.GlobalScreen;
 import org.jnativehook.NativeHookException;
@@ -18,11 +17,16 @@ public class GlobalKeyListenerExample implements NativeKeyListener {
 	public void nativeKeyPressed(NativeKeyEvent e) {
 //		System.out.println("Key Pressed: " + NativeKeyEvent.getKeyText(e.getKeyCode()));
 		try {						
-			DateFormat date = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+			DateFormat date = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
 			Date d = new Date();
-			FileWriter fw = new FileWriter("input.txt",true);
+			FileWriter fw = new FileWriter("inputKey.txt",true);
 			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write(date.format(d)+"-"+NativeKeyEvent.getKeyText(e.getKeyCode()).toString()+"_");	
+			bw.write(date.format(d));
+			bw.write("\n");
+			bw.write(Integer.toString(0));
+			bw.write("\n");
+			bw.write(NativeKeyEvent.getKeyText(e.getKeyCode()).toString());
+			bw.write("\n");
 			bw.close();
 			fw.close();
 			
@@ -50,7 +54,7 @@ public class GlobalKeyListenerExample implements NativeKeyListener {
 
 	public static void main(String[] args) {
 		try {
-		File file = new File("input.txt");
+		File file = new File("inputKey.txt");
 			if(file.exists()){
 				file.delete();
 			}
